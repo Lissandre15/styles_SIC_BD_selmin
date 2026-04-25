@@ -7,8 +7,8 @@
 
   <info>
     <title>Custom Author-Date Cockburn Style v5</title>
-    <id>https://raw.githubusercontent.com/Lissandre15/styles_SIC_BD_selmin/refs/heads/master/custom-author-date_5.csl</id>
-    <link href="https://raw.githubusercontent.com/Lissandre15/styles_SIC_BD_selmin/refs/heads/master/custom-author-date_5.csl" rel="self"/>
+    <id>https://raw.githubusercontent.com/Lissandre15/styles_SIC_BD_selmin/master/custom-author-date_5.csl</id>
+    <link href="https://raw.githubusercontent.com/Lissandre15/styles_SIC_BD_selmin/master/custom-author-date_5.csl" rel="self"/>
     <category citation-format="author-date"/>
     <category field="engineering"/>
     <updated>2026-04-25T00:00:00+00:00</updated>
@@ -24,9 +24,7 @@
 
   <macro name="author-full">
     <names variable="author">
-      <name form="short"
-            initialize-with=". "
-            delimiter=", "/>
+      <name form="short" initialize-with=". " delimiter=", "/>
     </names>
   </macro>
 
