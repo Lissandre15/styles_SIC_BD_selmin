@@ -112,7 +112,7 @@
             <text macro="author-short"/>
             <text macro="year-date" prefix=", "/>
           </group>
-          <text macro="author-full" suffix=", "/>
+          <text macro="author-full" suffix=". "/>
           <choose>
             <if type="book">
               <text variable="title" font-style="italic" suffix=", "/>
@@ -137,7 +137,7 @@
               <text value="in the Proceedings of the "/>
               <text variable="container-title" suffix=", "/>
               <text variable="event-place" suffix=", "/>
-              <text macro="month-year" suffix=". "/>
+              <text macro="month-year" suffix=", "/>
               <names variable="editor" prefix="edited by " suffix=". ">
                 <name form="short" initialize-with=". " delimiter=", "/>
               </names>
