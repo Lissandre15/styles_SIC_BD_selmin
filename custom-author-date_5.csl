@@ -7,8 +7,8 @@
 
   <info>
     <title>Custom Author-Date Cockburn Style v5</title>
-    <id>https://raw.githubusercontent.com/Lissandre15/styles_SIC_BD_selmin/master/custom-author-date_5.csl</id>
-    <link href="https://raw.githubusercontent.com/Lissandre15/styles_SIC_BD_selmin/master/custom-author-date_5.csl" rel="self"/>
+    <id>https://raw.githubusercontent.com/Lissandre15/styles_SIC_BD_selmin/refs/heads/master/custom-author-date_5.csl</id>
+    <link href="https://raw.githubusercontent.com/Lissandre15/styles_SIC_BD_selmin/refs/heads/master/custom-author-date_5.csl" rel="self"/>
     <category citation-format="author-date"/>
     <category field="engineering"/>
     <updated>2026-04-25T00:00:00+00:00</updated>
@@ -23,13 +23,10 @@
   </macro>
 
   <macro name="author-full">
-    <names variable="author">
+    <names variable="author" et-al-min="100" et-al-use-first="99">
       <name form="short"
             initialize-with=". "
-            delimiter=", "
-            name-as-sort-order="never"
-            et-al-min="100"
-            et-al-use-first="99"/>
+            delimiter=", "/>
     </names>
   </macro>
 
@@ -117,7 +114,7 @@
             <text macro="author-short"/>
             <text macro="year-date" prefix=", "/>
           </group>
-          <text macro="author-full" suffix=". "/>
+          <text macro="author-full" suffix=", "/>
           <choose>
             <if type="book">
               <text variable="title" font-style="italic" suffix=", "/>
@@ -138,7 +135,7 @@
               <text variable="page" prefix="pp. " suffix="."/>
             </else-if>
             <else-if type="paper-conference">
-              <text variable="title" suffix=", "/>
+              <text variable="title" suffix=". "/>
               <text value="in the Proceedings of the "/>
               <text variable="container-title" suffix=", "/>
               <text variable="event-place" suffix=", "/>
