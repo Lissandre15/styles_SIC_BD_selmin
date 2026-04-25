@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl"
+       class="in-text"
+       version="1.0"
+       demote-non-dropping-particle="sort-only"
+       default-locale="en-US">
+
+  <info>
+    <title>Custom Author-Date Cockburn Style v5</title>
+    <id>https://csl.mendeley.com/styles/833593401/custom-author-date_4.csl</id>
+    <link href="https://csl.mendeley.com/styles/833593401/custom-author-date_4.csl" rel="self"/>
+    <category citation-format="author-date"/>
+    <category field="engineering"/>
+    <updated>2026-04-25T00:00:00+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+  </info>
+
+  <macro name="author-short">
+    <names variable="author">
+      <name form="short" et-al-min="3" et-al-use-first="1"/>
+      <et-al/>
+    </names>
+  </macro>
+
+  <macro name="author-full">
+    <names variable="author">
+      <name form="short"
+            initialize-with=". "
+            delimiter=", "
+            name-as-sort-order="never"
+            et-al-min="100"
+            et-al-use-first="99"/>
+    </names>
+  </macro>
+
+  <macro name="year-date">
+    <date variable="issued">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <macro name="month-year">
+    <date variable="issued">
+      <date-part name="month" form="long" suffix=" "/>
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <macro name="edition">
+    <choose>
+      <if is-numeric="edition">
+        <group delimiter=" ">
+          <number variable="edition" form="ordinal"/>
+          <text term="edition" form="short"/>
+        </group>
+      </if>
+      <else>
+        <text variable="edition"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="access">
+    <choose>
+      <if variable="URL">
+        <group delimiter=" ">
+          <text variable="URL"/>
+          <group prefix="Dernier accès " delimiter="/">
+            <date variable="accessed">
+              <date-part name="day" form="numeric-leading-zeros"/>
+              <date-part name="month" form="numeric-leading-zeros" prefix="/"/>
+              <date-part name="year" prefix="/"/>
+            </date>
+          </group>
+        </group>
+      </if>
+    </choose>
+  </macro>
+
+  <citation et-al-min="3" et-al-use-first="1" disambiguate-add-year-suffix="true">
+    <sort>
+      <key macro="author-short"/>
+      <key macro="year-date"/>
+    </sort>
+    <layout prefix="[" suffix="]" delimiter="; ">
+      <choose>
+        <if type="webpage post-weblog" match="any">
+          <text variable="citation-number"/>
+        </if>
+        <else>
+          <group delimiter=", ">
+            <text macro="author-short"/>
+            <text macro="year-date"/>
+          </group>
+        </else>
+      </choose>
+    </layout>
+  </citation>
+
+  <bibliography entry-spacing="1" hanging-indent="false">
+    <sort>
+      <key macro="author-short"/>
+      <key macro="year-date"/>
+    </sort>
+    <layout>
+      <choose>
+        <if type="webpage post-weblog" match="any">
+          <text variable="citation-number" prefix="[" suffix="] "/>
+          <text variable="title" suffix=". "/>
+          <group prefix="(" suffix=") ">
+            <text macro="year-date"/>
+          </group>
+          <text macro="access" suffix="."/>
+        </if>
+        <else>
+          <group prefix="[" suffix="] ">
+            <text macro="author-short"/>
+            <text macro="year-date" prefix=", "/>
+          </group>
+          <text macro="author-full" suffix=". "/>
+          <choose>
+            <if type="book">
+              <text variable="title" font-style="italic" suffix=", "/>
+              <text macro="edition" suffix=", "/>
+              <text variable="publisher" suffix=", "/>
+              <text macro="year-date" suffix=". "/>
+              <text variable="number-of-pages" suffix=" pages."/>
+            </if>
+            <else-if type="article-journal">
+              <text variable="title" suffix=". "/>
+              <text variable="container-title" font-style="italic" suffix=", "/>
+              <text variable="publisher" suffix=", "/>
+              <group suffix=", ">
+                <text variable="volume"/>
+                <text variable="issue" prefix="(" suffix=")"/>
+              </group>
+              <text macro="year-date" suffix=", "/>
+              <text variable="page" prefix="pp. " suffix="."/>
+            </else-if>
+            <else-if type="paper-conference">
+              <text variable="title" suffix=", "/>
+              <text value="in the Proceedings of the "/>
+              <text variable="container-title" suffix=", "/>
+              <text variable="event-place" suffix=", "/>
+              <text macro="month-year" suffix=". "/>
+              <names variable="editor" prefix="edited by " suffix=". ">
+                <name form="short" initialize-with=". " delimiter=", "/>
+              </names>
+              <text variable="collection-title" suffix=", "/>
+              <text variable="page" prefix="pp " suffix="."/>
+            </else-if>
+            <else-if type="chapter">
+              <text variable="title" suffix=". "/>
+              <text term="in" text-case="capitalize-first" suffix=" "/>
+              <text variable="container-title" font-style="italic" suffix=", "/>
+              <names variable="editor" prefix="edited by " suffix=", ">
+                <name form="short" initialize-with=". " delimiter=", "/>
+              </names>
+              <text variable="publisher" suffix=", "/>
+              <text macro="year-date" suffix=", "/>
+              <text variable="page" prefix="pp. " suffix="."/>
+            </else-if>
+            <else>
+              <text variable="title" font-style="italic" suffix=". "/>
+              <text variable="publisher" suffix=", "/>
+              <text macro="year-date" suffix=". "/>
+              <text variable="number-of-pages" suffix=" pages."/>
+            </else>
+          </choose>
+        </else>
+      </choose>
+    </layout>
+  </bibliography>
+
+</style>
