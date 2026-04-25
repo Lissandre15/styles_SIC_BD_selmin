@@ -23,7 +23,7 @@
   </macro>
 
   <macro name="author-full">
-    <names variable="author" et-al-min="100" et-al-use-first="99">
+    <names variable="author">
       <name form="short"
             initialize-with=". "
             delimiter=", "/>
